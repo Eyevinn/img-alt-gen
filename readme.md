@@ -45,6 +45,7 @@ Output in plain text
 
 ```bash
 % curl "http://localhost:8000/image/alt?url=https%3A%2F%2Fblog.osaas.io%2Fwp-content%2Fuploads%2F2025%2F02%2Fimage-1536x851.png&format=text"
+The image shows a dashboard displaying stream monitor statuses, uptime, error counts, and error distribution data for two active streams.
 ```
 
 ## Contributing
