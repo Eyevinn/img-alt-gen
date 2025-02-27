@@ -1,6 +1,13 @@
 import api from './api';
 
-const server = api({ title: '@eyevinn/typescript-nodejs' });
+if (!process.env.OPENAI_API_KEY) {
+  console.error('OPENAI_API_KEY is required');
+  process.exit(1);
+}
+const server = api({
+  title: 'Image alt description tag generator',
+  openAiApiKey: process.env.OPENAI_API_KEY
+});
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 8000;
 

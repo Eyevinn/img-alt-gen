@@ -6,6 +6,8 @@ import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import { Static, Type } from '@sinclair/typebox';
 import { FastifyPluginCallback } from 'fastify';
 
+import apiImage from './api_image';
+
 const HelloWorld = Type.String({
   description: 'The magical words!'
 });
@@ -38,6 +40,7 @@ const healthcheck: FastifyPluginCallback<HealthcheckOptions> = (
 
 export interface ApiOptions {
   title: string;
+  openAiApiKey: string;
 }
 
 export default (opts: ApiOptions) => {
@@ -64,6 +67,7 @@ export default (opts: ApiOptions) => {
 
   api.register(healthcheck, { title: opts.title });
   // register other API routes here
+  api.register(apiImage, { openAiApiKey: opts.openAiApiKey });
 
   return api;
 };
